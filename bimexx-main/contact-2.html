@@ -1012,31 +1012,24 @@
               <div class="row y-gap-30 pt-40">
 
                 <div class="col-sm-6">
-                  <div class="text-20 fw-500 text-dark-1">London</div>
+                  <div class="text-20 fw-500 text-dark-1">United Arab Emirates</div>
                   <div class="y-gap-10 pt-15">
-                    <a href="#" class="d-block">328 Queensberry Street, North Melbourne VIC 3051, Australia.</a>
-                    <a href="#" class="d-block">+(1) 123 456 7890</a>
-                    <a href="#" class="d-block">hi@bimex.com</a>
+                    <a href="#" class="d-block">Al Ain.</a>
+                    <a href="#" class="d-block">+971528240506</a>
+                    <a href="#" class="d-block">livebimex@gmail.com</a>
                   </div>
                 </div>
 
                 <div class="col-sm-6">
-                  <div class="text-20 fw-500 text-dark-1">Paris</div>
+                  <div class="text-20 fw-500 text-dark-1">India</div>
                   <div class="y-gap-10 pt-15">
-                    <a href="#" class="d-block">328 Queensberry Street, North Melbourne VIC 3051, Australia.</a>
-                    <a href="#" class="d-block">+(1) 123 456 7890</a>
-                    <a href="#" class="d-block">hi@bimex.com</a>
+                    <a href="#" class="d-block">Mankamkuzhy PO,Mavelikara,Alappuzha <br>Kerala,690558</a>
+                    <a href="#" class="d-block">9605306260</a>
+                    <a href="#" class="d-block">livebimex@gmail.com</a>
                   </div>
                 </div>
 
-                <div class="col-sm-6">
-                  <div class="text-20 fw-500 text-dark-1">Los Angeles</div>
-                  <div class="y-gap-10 pt-15">
-                    <a href="#" class="d-block">328 Queensberry Street, North Melbourne VIC 3051, Australia.</a>
-                    <a href="#" class="d-block">+(1) 123 456 7890</a>
-                    <a href="#" class="d-block">hi@bimex.com</a>
-                  </div>
-                </div>
+               
 
               </div>
             </div>
@@ -1070,6 +1063,58 @@
           </div>
         </div>
       </section>
+
+      <script>
+        // Add this script to your website
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.querySelector('.contact-form');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form values
+      const name = contactForm.querySelector('input[placeholder="Name..."]').value;
+      const email = contactForm.querySelector('input[placeholder="Email..."]').value;
+      const message = contactForm.querySelector('textarea[placeholder="Message"]').value;
+      
+      // Validate form
+      if (!name || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+      }
+      
+      if (!isValidEmail(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      // Your email address where you want to receive messages
+      const yourEmail = 'livebimex@gmail.com'; 
+      
+      // Create the email content
+      const subject = 'New contact form submission';
+      const body = `
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}
+      `;
+      
+      // Create mailto link and open it
+      const mailtoLink = `mailto:${yourEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
+  }
+  
+  // Helper function to validate email
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+});
+      </script>
 
       <section class="layout-pt-lg layout-pb-lg bg-light-4">
         <div class="container">
@@ -1303,6 +1348,7 @@
   <script src="../../../unpkg.com/leaflet%401.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
   <script src="js/vendors.js"></script>
   <script src="js/main.js"></script>
+  
 </body>
 
 

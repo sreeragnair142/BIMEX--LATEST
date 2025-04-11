@@ -1,12 +1,9 @@
-// This script filters courses based on the category query parameter
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the category from URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
     
     // If we have a category parameter
     if (category) {
-      // Display the category name in a heading
       const categoryHeading = document.querySelector('.sectionTitle__title');
       if (categoryHeading) {
         categoryHeading.textContent = formatCategoryName(category) + ' Courses';
@@ -29,10 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Get the course titles for the current category
       const relevantCourseTitles = categoryMappings[category] || [];
       
-      // Filter courses based on exact course titles
       allCourses.forEach(function(course) {
         const courseTitle = course.querySelector('.text-17.lh-15').textContent.trim();
-        // Check if this course title is in our relevant courses list
         const shouldShow = relevantCourseTitles.some(title => 
           courseTitle.toUpperCase().includes(title.toUpperCase())
         );
@@ -60,9 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Helper function to format category name
     function formatCategoryName(slug) {
-      // Replace hyphens with spaces and capitalize each word
       return slug.split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     }
   });
+
+
+
+  // email////////////////
+
